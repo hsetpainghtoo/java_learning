@@ -8,6 +8,10 @@ Welcome to my repository for the University of the People (UoP) Java Programming
   - `QuizGame.java`: A console-based quiz game.
 - **`uop-unit-2/`**: Contains assignments for Unit 2.
   - `LibrarySystem.java`: A basic library management system.
+- **`uop-unit-3/`**: Contains assignments for Unit 3.
+  - `Student.java`: Represents a Student model with details (name, ID, age, grade).
+  - `StudentManagement.java`: Manages the students repository with operations to add, update, and view records.
+  - `Main.java`: A console interface providing menu-driven admin control for managing student records.
 - **Root Directory**:
   - `HelloWorld.java`: Introductory Java program.
   - `GradeChecker.java`: A utility program to check grades.
@@ -30,6 +34,12 @@ cd uop-unit-1
 javac QuizGame.java
 ```
 
+For the Unit 3 Student Record Management System:
+```bash
+cd uop-unit-3
+javac Main.java
+```
+
 ### 2. Running
 
 Once compiled, a `.class` file will be generated. You can run it using the `java` command (without the `.class` extension):
@@ -41,6 +51,12 @@ java FileName
 For example, to run the Quiz Game:
 ```bash
 java QuizGame
+```
+
+For the Student Record Management System:
+```bash
+cd uop-unit-3
+java Main
 ```
 
 ## About
