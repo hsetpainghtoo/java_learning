@@ -34,12 +34,6 @@ cd uop-unit-1
 javac QuizGame.java
 ```
 
-For the Unit 3 Student Record Management System:
-```bash
-cd uop-unit-3
-javac Main.java
-```
-
 ### 2. Running
 
 Once compiled, a `.class` file will be generated. You can run it using the `java` command (without the `.class` extension):
@@ -51,12 +45,6 @@ java FileName
 For example, to run the Quiz Game:
 ```bash
 java QuizGame
-```
-
-For the Student Record Management System:
-```bash
-cd uop-unit-3
-java Main
 ```
 
 ## About
