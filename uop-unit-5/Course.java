@@ -9,16 +9,16 @@
  * in courses overall?" without adding up every course individually.
  */
 public class Course {
- 
+
     // ---- Instance variables (belong to ONE course) ----
     private String courseCode;
     private String name;
     private int maxCapacity;
     private int currentEnrollment;
- 
+
     // ---- Static variable (shared by ALL Course objects) ----
     private static int totalEnrolledStudents = 0;
- 
+
     /**
      * Creates a new course with zero students currently enrolled.
      */
@@ -28,24 +28,24 @@ public class Course {
         this.maxCapacity = maxCapacity;
         this.currentEnrollment = 0;
     }
- 
+
     // ---- Getters (public, read-only access to private fields) ----
     public String getCourseCode() {
         return courseCode;
     }
- 
+
     public String getName() {
         return name;
     }
- 
+
     public int getMaxCapacity() {
         return maxCapacity;
     }
- 
+
     public int getCurrentEnrollment() {
         return currentEnrollment;
     }
- 
+
     /**
      * Instance method: is THIS course full? Depends on this object's
      * own currentEnrollment/maxCapacity, so it cannot be static.
@@ -53,7 +53,7 @@ public class Course {
     public boolean isFull() {
         return currentEnrollment >= maxCapacity;
     }
- 
+
     /**
      * Called by CourseManagement after a student has successfully been
      * added to this course. Bumps this course's own counter AND the
@@ -70,7 +70,7 @@ public class Course {
         totalEnrolledStudents++;
         return true;
     }
- 
+
     /**
      * Static method: returns the total number of enrolled students
      * across every Course object that exists. Static because it
@@ -79,7 +79,7 @@ public class Course {
     public static int getTotalEnrolledStudents() {
         return totalEnrolledStudents;
     }
- 
+
     @Override
     public String toString() {
         return courseCode + " - " + name + " (" + currentEnrollment + "/" + maxCapacity + " enrolled)";

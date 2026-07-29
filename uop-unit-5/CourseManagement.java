@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
- 
+
 /**
  * Acts as the central coordinator for the whole system. It does not
  * represent any single real-world entity the way Student or Course
@@ -15,11 +15,11 @@ import java.util.Map;
  * student and each course needs its own separate copy of its data).
  */
 public class CourseManagement {
- 
+
     private static List<Course> courses = new ArrayList<>();
     private static List<Student> students = new ArrayList<>();
     private static Map<String, Double> overallGrades = new HashMap<>(); // key = student ID
- 
+
     /**
      * Creates a new Course object from the given details and adds it
      * to the master list of courses.
@@ -29,7 +29,7 @@ public class CourseManagement {
         courses.add(course);
         return course;
     }
- 
+
     /**
      * Creates a new Student object and adds it to the master list of
      * students.
@@ -39,7 +39,7 @@ public class CourseManagement {
         students.add(student);
         return student;
     }
- 
+
     /**
      * Enrolls a student in a course by delegating to Student's own
      * instance method, then updates the course's enrollment counters.
@@ -56,7 +56,7 @@ public class CourseManagement {
         }
         return enrolled;
     }
- 
+
     /**
      * Assigns a grade to a student for a course by delegating to
      * Student's own instance method, then refreshes that student's
@@ -69,7 +69,7 @@ public class CourseManagement {
         }
         return assigned;
     }
- 
+
     /**
      * Calculates a student's overall grade as the average of every
      * grade they have received so far, and stores it in the static
@@ -89,15 +89,31 @@ public class CourseManagement {
         overallGrades.put(student.getId(), average);
         return average;
     }
- 
+
+    public static Student getTopStudent() {
+        Student topStudent = null;
+        double highestGrade = -1; // Start with -1 so that any real grade (0-100) will be higher
+        if (students.isEmpty()) {
+            return null; // No students to evaluate
+        }
+        for (Student s : students) {
+            double overallGrade = overallGrades.getOrDefault(s.getId(), 0.0);
+            if (overallGrade > highestGrade) {
+                highestGrade = overallGrade;
+                topStudent = s;
+            }
+        }
+        return topStudent;
+    }
+
     public static List<Course> getCourses() {
         return courses;
     }
- 
+
     public static List<Student> getStudents() {
         return students;
     }
- 
+
     public static Course findCourseByCode(String code) {
         for (Course c : courses) {
             if (c.getCourseCode().equalsIgnoreCase(code)) {
@@ -106,7 +122,7 @@ public class CourseManagement {
         }
         return null;
     }
- 
+
     public static Student findStudentById(String id) {
         for (Student s : students) {
             if (s.getId().equalsIgnoreCase(id)) {

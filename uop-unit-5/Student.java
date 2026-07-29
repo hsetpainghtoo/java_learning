@@ -20,7 +20,7 @@ public class Student {
         this.name = name;
         this.id = id;
         this.enrolledCourses = new ArrayList<>();
-        this.grades = new HashMap<>();
+        this.grades = new HashMap<>(); // I use a HashMap here because I want to be able to look up a grade by course code quickly.
     }
  
     // ---- Getters ----totalEnrolledStudents
