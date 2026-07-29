@@ -1,10 +1,22 @@
+/**
+ * Truck represents a truck available for rental. It implements both the
+ * general Vehicle contract and the truck-specific TruckVehicle contract.
+ */
 public class Truck implements Vehicle, TruckVehicle {
+
     private String make;
     private String model;
     private int year;
     private double cargoCapacity;
     private String transmissionType;
 
+    /**
+     * Constructs a Truck with its basic vehicle details.
+     *
+     * @param make  the manufacturer
+     * @param model the model name
+     * @param year  the year of manufacture
+     */
     public Truck(String make, String model, int year) {
         this.make = make;
         this.model = model;
@@ -46,11 +58,13 @@ public class Truck implements Vehicle, TruckVehicle {
         return transmissionType;
     }
 
+    /**
+     * Returns a human-readable summary of the truck's details.
+     */
     @Override
     public String toString() {
         return String.format(
                 "Truck -> Make: %s | Model: %s | Year: %d | Cargo Capacity: %.1f tons | Transmission: %s",
                 make, model, year, cargoCapacity, transmissionType);
     }
-
 }
